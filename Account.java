@@ -1,6 +1,19 @@
 import java.security.SecureRandom;
 import java.util.Scanner;
 
+/**
+ * Class Account models the account setup for a new user.
+ * <p>
+ * First name and last name are passed during construction and are used to create email and user names.
+ * <p>
+ * Terminal interaction is required to select the new users department from a displayed array of options.
+ * <p>
+ * A random password is generated and assigned to the user.
+ * <p>
+ * Defaults have been preassigned for company and mail box capacity.
+ *  
+ */
+
 public class Account {
     
     //declare attributes
@@ -32,6 +45,14 @@ public class Account {
         
     }
 
+    /**
+     * Account creates a user account object,
+     * <p>
+     * Pass the name to the constructor and user the terminal to select the new users department.
+     * @param nFirstName String containing first name.
+     * @param nLastName String containing last name.
+     */
+
     //firstName, lastName param constructer
     public Account(String nFirstName, String nLastName){
         firstName = nFirstName;
@@ -58,7 +79,8 @@ public class Account {
 
     }
 
-    //all param constructer
+    //all param constructer for future use.
+
     public Account(String nFirstName, String nLastName, String  nDepartment, String nCompany, String nUserName, String nPassword, int nMailBoxCapacity, String nAlternativeEmail){
         firstName = nFirstName;
         lastName = nLastName;
@@ -74,120 +96,219 @@ public class Account {
     }
 
     //setters - mutators
+
+    /**
+     * setFirstName accepts a String for the first name.
+     * @param nFirstName The first name.
+     */
+
     public void setFirstName(String nFirstName){
         firstName = nFirstName;
 
     } //end setFirstName
+
+    /**
+     * setLastName accepts a String for the last name.
+     * @param nLastName The last name.
+     */
 
     public void setLastName(String nLastName){
         lastName = nLastName;
 
     } //end setLastName
 
-    public void setDepartment(String nDepartment){
+
+    private void setDepartment(String nDepartment){
         department = nDepartment;
     } //end setDepartment
 
-    public void setCompany(String nCompany){
+
+    private void setCompany(String nCompany){
         company = nCompany;
 
     } //end setCompany
 
-    public void setUserName(String nUserName){
+    private void setUserName(String nUserName){
         userName = nUserName;
 
     } //end setUserName
 
-    public void setPassword(String nPassword){
+    private void setPassword(String nPassword){
         password = nPassword;
 
     }
+
+    /**
+     * setMailBoxCapacity accepts an int value to use as the max mail capacity.
+     * @param nMailBoxCapacity int value of the max mb of mail capacity.
+     */
 
     public void setMailBoxCapacity(int nMailBoxCapacity){
         mailBoxCapacity = nMailBoxCapacity;
 
     } //end setMailBoxCapacity
 
-    public void setDomainName(String nDomainName){
+    private void setDomainName(String nDomainName){
         domainName = nDomainName;
 
     } //end setDomainName
 
-    public void setTopDomain(String nTopDomain){
+    private void setTopDomain(String nTopDomain){
         topDomain = nTopDomain;
 
     } //end setTopDomain
 
-    public void setEmail(String nEmail){
+    private void setEmail(String nEmail){
         email = nEmail;
 
     } //end setEmail
+
+    /**
+     * setAlternativeEmail allows the user to have a secondary email on record.
+     * @param nAlternativeEmail String value of an alt email address.
+     */
     
     public void setAlternativeEmail(String nAlternativeEmail){
         alternativeEmail = nAlternativeEmail;
 
     } //end setAlternativeEmail
 
+    /**
+     * setPossibleDepartments accepts an array of Strings containing all department options for a new user.
+     * <p>
+     * This value feeds the menu of possible choices that displays when a new user is setup,
+     * @param nPossibleDepartments String array of departments.
+     */
+
     public void setPossibleDepartments(String[] nPossibleDepartments){
         possibleDepartments = nPossibleDepartments;
 
-    }
+    } //end setPossibleDepartments
 
     //getters - accessors
+
+    /**
+     * getFirstName returns the first name as a String.
+     * @return The first name.
+     */
+
     public String getFirstName(){
         return firstName;        
 
     } //end getFirstName
+
+    /**
+     * getLastName returns the last name as a String.
+     * @return The last name.
+     */
 
     public String getLastName(){
         return lastName;        
 
     } //end getLastName
 
+    /**
+     * getDepartment returns the department as a String.
+     * @return The department name selected.
+     */
+
     public String getDepartment(){
         return department;
 
     } //end getDepartment
+
+    /**
+     * getCompany returns the default company value as a String.
+     * @return The company name.
+     */
 
     public String getCompany(){
         return company;
 
     } //end getCompany
 
+    /**
+     * getUserName returns the assigned user name.
+     * <p>
+     * User name format is first inital last name.
+     * @return The user name.
+     */
+
     public String getUserName(){
         return userName;
 
     } //end getUserName
+
+    /**
+     * getPassword returns the value of the password as a String.
+     * @return The assigned password.
+     */
 
     public String getPassword(){
         return password;
 
     } //end getPassword
 
+    /**
+     * getMailBoxCapacity returns the currently set mail box capacity as an int.
+     * <p>
+     * Capacity is defined in units of MB.
+     * @return The mail box capaity.
+     */
+
     public int getMailBoxCapacity(){
         return mailBoxCapacity;
 
     } //end getMailBoxCapacity
+
+    /**
+     * getDomainName returns the default domain name.
+     * @return The domain name.
+     */
 
     public String getDomainName(){
         return domainName;
 
     } //end getDomainName
 
+    /**
+     * getTopDomain returns the top level domain.
+     * @return The top domain.
+     */
+
     public String getTopDomain(){
         return topDomain;
 
     }
+
+    /**
+     * getEmail returns the email address created for the user.
+     * <p>
+     * email address is returned as a string of FirstName.LastName.@Domain.TopDomain.
+     * @return The email addresss.
+     */
 
     public String getEmail(){
         return email;
 
     } //end getEmail
     
+    /**
+     * getAlternativeEmail returns a saved alternative email addresss if available.
+     * @return The alternative email.
+     */
+
     public String getAlternativeEmail(){
         return alternativeEmail;
 
     } //end getAlternativeEmail
+
+    /**
+     * getPossibleDepartments returns an array of String values contianing all of the currently set options for department.
+     * <p>
+     * The departments are held as full department name in a String.
+     * @return Array of departments.
+     */
 
     public String[] getPossibleDepartments(){
         return possibleDepartments;
@@ -195,6 +316,11 @@ public class Account {
     }
 
     //other functions
+
+    /**
+     * displayAccountDetails prints to terminal the currently set account attributes.
+     */
+
     public void displayAccountDetails(){
         System.out.println("=======================================");
         System.out.println("Account Details");
@@ -304,7 +430,7 @@ public class Account {
 
         return new String(password);
 
-    } //end randowmPasswordGen
+    } //end randomPasswordGen
 
     //build an email address
     private String buildEmailAddress(String nFirstName, String nLastName, String nDomainName, String nTopDomain){
